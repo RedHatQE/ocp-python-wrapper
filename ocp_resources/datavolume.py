@@ -271,7 +271,7 @@ class DataVolume(NamespacedResource):
         self,
         timeout=TIMEOUT_10MINUTES,
         failure_timeout=TIMEOUT_2MINUTES,
-        dv_garbage_collection_enabled=False,
+        dv_garbage_collection_enabled=None,
         stop_status_func=None,
         *stop_status_func_args,
         **stop_status_func_kwargs,
@@ -282,7 +282,8 @@ class DataVolume(NamespacedResource):
         Args:
             timeout (int):  Time to wait for the DataVolume to succeed.
             failure_timeout (int): Time to wait for the DataVolume to have not Pending/None status
-            dv_garbage_collection_enabled (bool, default: False): DV garbage collection is deprecated and removed in v4.19
+            dv_garbage_collection_enabled (bool, default: None): DV garbage collection is deprecated and removed in
+            v4.19
             stop_status_func (function): function that is called inside the TimeoutSampler
                 if it returns True - stop the Sampler and raise TimeoutExpiredError
                 Example:
